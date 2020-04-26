@@ -30,6 +30,7 @@ note: "bootstrap is used for creating the templates"
 
 Step2:Analysis 
 
-	2.1: first Convert the data parsed using beautifulSoup to csv format.( I will update it daily.
-	Those who want to use can use the dataset).For this I will be using Pandas.
+	2.1: first Convert the data parsed using beautifulSoup to csv format.(Those who want to use can
+ 	use the dataset).For this I will be using Pandas.
+	
 		 
