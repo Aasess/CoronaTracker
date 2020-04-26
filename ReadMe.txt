@@ -28,9 +28,15 @@ note: "watch the project demo "
 note: "bootstrap is used for creating the templates"	
 
 
-Step2:Analysis 
+Step2:Web Scraping: Storing above parsed data to csv file 
 
 	2.1: first Convert the data parsed using beautifulSoup to csv format.(Those who want to use can
  	use the dataset).For this I will be using Pandas.
 	
+	I will be working on TimeSeries Analysis considering different project. Those who want to work on 
+	the same Development can do the following
+		* In App -> views.py after line53 of coronatracker..... copy the modified code of"Parsingandtocsv.py
+		 file from coronacsv directory"
+		
+			
 		 
