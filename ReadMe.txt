@@ -1,3 +1,6 @@
+
+Step1 : Development
+
 We need to parse the data(text) from "https://www.worldometers.info/coronavirus/". For this I am using
 
 BeautifulSoup library + Requests library. Requests allows us to make HTTP request to get infomation from 
@@ -23,4 +26,10 @@ powerful for parsing compared to pandas).
 
 note: "watch the project demo "
 note: "bootstrap is used for creating the templates"	
-	 
+
+
+Step2:Analysis 
+
+	2.1: first Convert the data parsed using beautifulSoup to csv format.( I will update it daily.
+	Those who want to use can use the dataset).For this I will be using Pandas.
+		 
