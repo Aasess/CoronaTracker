@@ -1,5 +1,5 @@
 
-Step1 : Development
+Step1 : Development(CoronaProject + Demo for project dir)
 
 We need to parse the data(text) from "https://www.worldometers.info/coronavirus/". For this I am using
 
@@ -28,7 +28,7 @@ note: "watch the project demo "
 note: "bootstrap is used for creating the templates"	
 
 
-Step2:Web Scraping: Storing above parsed data to csv file 
+Step2:Web Scraping: Storing above parsed data to csv file(coronacsv:masterbranch) 
 
 	2.1: first Convert the data parsed using beautifulSoup to csv format.(Those who want to use can
  	use the dataset).For this I will be using Pandas.
@@ -39,4 +39,5 @@ Step2:Web Scraping: Storing above parsed data to csv file
 		 file from coronacsv directory"
 		
 			
-		 
+Step3: TimeSeriesAnalysis
+			 
