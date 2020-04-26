@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <title>Corona Tracker</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/album/">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{% url 'home' %}">Ashish Neupane</a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ml-auto">
+                <form class="form-inline"  method="GET" action="{% url 'country' %}">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search By Country"
+                           aria-label="Search" name = 'CountrySearch'/>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main role="main">
+    <h2 style="text-align:center">Corona Virus Tracker Application</h2>
+
+    <section class="jumbotron text-center">
+        <h5 style="text-align:left">Total Cases in World : {{ worldtotalcase }}</h5>
+        <h5 style="text-align:left">Total Deaths in World: {{ worlddeathcases }}</h5>
+        <h5 style="text-align:left">Total Recovered in World: {{ worldrecoveredcase }}</h5>
+        <h5 style="text-align:left">Total Active cases in World: {{ worldactivecases }}</h5>
+
+        <!-- Button trigger modal -->
+
+    </section>
+    <!--    <form method="Post" class="album py-5 bg-light" action="{url ''}">-->
+    <!--        {% csrf_token %}-->
+    <!--        <div class="input-group mb-3 container">-->
+    <!--            <input type="text" class="form-control" placeholder="Search By Country">-->
+    <!--            <div class="input-group-append">-->
+    <!--                <button class="btn btn-success" type="button" data-toggle="modal" data-target="#exampleModal" formaction="#">Go</button>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </form>-->
+
+    <table class="table table-hover table-sm table table-bordered" style="text-align:center">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Country</th>
+            <th scope="col">Total Cases</th>
+            <th scope="col">Total Deaths</th>
+            <th scope="col">Total Recovered</th>
+            <th scope="col">Active Cases</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for corona in corona %}
+        <tr>
+            <th scope="row">{{ corona.Country }}</th>
+            <td>{{ corona.TotalCases }}</td>
+            <td>{{ corona.TotalDeath }}</td>
+            <td>{{ corona.TotalRecovered }}</td>
+            <td>{{ corona.ActiveCases }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</main>
+
+<footer class="text-muted">
+    <div class="container text-center">
+        <a>© Ashish Neupane {% now "Y" %}</a>
+    </div>
+</footer>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script
+</body>
+</html>
