@@ -2,6 +2,7 @@ from django.shortcuts import render
 from bs4 import BeautifulSoup
 import requests
 
+
 def returnresult():
     source = requests.get("https://www.worldometers.info/coronavirus/").text
     soup = BeautifulSoup(source, 'lxml')
@@ -22,8 +23,7 @@ def returnresult():
 
     # sorting the data by country name
     datamodified.sort()
-    return(datamodified)
-
+    return (datamodified)
 
 
 # Create your views here.
@@ -63,10 +63,12 @@ def country(request):
     CountrySearch = request.GET['CountrySearch']
     CountrySearch = CountrySearch.upper()
 
-    #calling the function
+    # calling the function
     datamodified = returnresult()
     # preparing the table
     finallist = []
+    error = True
+
     for row in datamodified:
         datadict = {
             'Country': row[0],
@@ -84,9 +86,11 @@ def country(request):
             recoveredcase = row[5]
             deathcases = row[3]
             activecases = row[6]
+            error = False
+
 
     firsttwoletter = countryname[:2].lower()
-    #print(firsttwoletter)
+    # print(firsttwoletter)
 
     # dict
     context = {
@@ -95,6 +99,7 @@ def country(request):
         "recoveredcase": recoveredcase,
         "deathcases": deathcases,
         "activecases": activecases,
-        "firstwo" : firsttwoletter
-        }
-    return render(request, "coronaapp\countrywise.html",context)
+        "firstwo": firsttwoletter
+    }
+    return render(request, "coronaapp\countrywise.html", context)
+
