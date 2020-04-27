@@ -2,8 +2,7 @@ from django.shortcuts import render
 from bs4 import BeautifulSoup
 import requests
 
-# Create your views here.
-def corona(request):
+def returnresult():
     source = requests.get("https://www.worldometers.info/coronavirus/").text
     soup = BeautifulSoup(source, 'lxml')
 
@@ -23,7 +22,13 @@ def corona(request):
 
     # sorting the data by country name
     datamodified.sort()
+    return(datamodified)
 
+
+
+# Create your views here.
+def corona(request):
+    datamodified = returnresult()
     # preparing the table
     finallist = []
     for row in datamodified:
@@ -56,29 +61,10 @@ def corona(request):
 
 def country(request):
     CountrySearch = request.GET['CountrySearch']
-    #print(type(CountrySearch))
     CountrySearch = CountrySearch.upper()
-    #print(CountrySearch)
-    source = requests.get("https://www.worldometers.info/coronavirus/").text
-    soup = BeautifulSoup(source, 'lxml')
 
-    # fetching the table from the site with the power of soup
-    table = soup.find('table')
-    table_rows = table.find_all('tr')
-
-    data = []  # empty list
-
-    for item in table_rows:
-        td = item.find_all('td')
-        eachrow = [i.text for i in td]
-        data.append(eachrow)
-
-    # cleaning(slicing) the data
-    datamodified = data[8:-8]
-
-    # sorting the data by country name
-    datamodified.sort()
-
+    #calling the function
+    datamodified = returnresult()
     # preparing the table
     finallist = []
     for row in datamodified:
