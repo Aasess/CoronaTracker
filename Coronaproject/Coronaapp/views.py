@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from bs4 import BeautifulSoup
 import requests
-
+import json
 
 def returnresult():
     source = requests.get("https://www.worldometers.info/coronavirus/").text
@@ -24,6 +24,23 @@ def returnresult():
     # sorting the data by country name
     datamodified.sort()
     return (datamodified)
+
+
+def jsonresult(countryname):
+    url = 'https://res.cloudinary.com/geotargetly/raw/upload/v1579830286/data/iso_3166_country_codes.json'
+    
+    #load the site
+    data_source = requests.get(url)
+
+    #convert the json file into python object
+    data = data_source.json()
+
+    for item in data:
+        if(countryname == item["country_name"] or countryname == item["alpha_3"]):
+            return item["alpha_2"]
+        else:
+            return countryname[:2]
+
 
 
 # Create your views here.
@@ -87,10 +104,9 @@ def country(request):
             deathcases = row[3]
             activecases = row[6]
             error = False
+        
 
-
-    firsttwoletter = countryname[:2].lower()
-    # print(firsttwoletter)
+    firsttwoletter = jsonresult(countryname)
 
     # dict
     context = {
@@ -99,7 +115,7 @@ def country(request):
         "recoveredcase": recoveredcase,
         "deathcases": deathcases,
         "activecases": activecases,
-        "firstwo": firsttwoletter
+        "firstwo": firsttwoletter.lower()
     }
     return render(request, "coronaapp\countrywise.html", context)
 
