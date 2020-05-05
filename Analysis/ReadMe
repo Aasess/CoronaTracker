@@ -7,5 +7,6 @@ Requirements:
   requests 2.22.0
   json5 0.8.5
   
-  note: Country used for analaysis and Prediction is Italy.(Can use anyone)
-        Description in corona.ipynb file
+  note: 1.Country used for analaysis and Prediction is Italy.(Can use anyone)
+        2.Estimation for next 365 days
+        3.Description in corona.ipynb file
