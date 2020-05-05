@@ -40,4 +40,6 @@ Step2:Web Scraping: Storing above parsed data to csv file(coronacsv:masterbranch
 		
 			
 Step3: TimeSeriesAnalysis
+	
+	Description in Analysis folder
 			 
