@@ -1,0 +1,11 @@
+We fetched the json file from "https://raw.githubusercontent.com/pomber/covid19/master/docs/timeseries.json" and also used our fetched data(using beautifulsoup from worldometer site) to load our json file 
+
+Requirements:
+  pandas 0.25.1
+  numpy 1.16.5
+  beautifulsoup4 4.9.0
+  requests 2.22.0
+  json5 0.8.5
+  
+  note: Country used for analaysis and Prediction is Italy.(Can use anyone)
+        Description in corona.ipynb file
